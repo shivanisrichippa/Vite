@@ -1,0 +1,36 @@
+
+
+body, html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Remove underline from all anchor tags */
+a {
+    text-decoration: none !important;  /* Ensures no underlines are shown */
+  }
+  
+  /* Optionally, you can target links specifically inside the navbar if you prefer */
+  .navbar-nav .nav-link {
+    text-decoration: none !important;  /* Ensures no underline in navbar links */
+  }
+  
+  /* To ensure buttons inside the navbar do not show underline */
+  .navbar-nav .nav-link:hover {
+    text-decoration: none !important;  /* Also ensure no underline on hover */
+  }
+  
+  /* Optional: Style navbar brand and other items if needed */
+  .navbar-brand {
+    text-decoration: none !important;
+  }
+  

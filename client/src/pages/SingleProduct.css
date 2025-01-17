@@ -1,0 +1,25 @@
+/* Custom Button Styles */
+.buy-now-btn {
+    background-color: #434f78;  /* Buy Now Button Color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .add-to-cart-btn {
+    background-color: #f3c9e3;  /* Add to Cart Button Color */
+    color: #434f78;  /* Text color to contrast with the background */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .buy-now-btn:hover, .add-to-cart-btn:hover {
+    opacity: 0.9;  /* Slight hover effect */
+  }
+  

@@ -1,0 +1,96 @@
+/* Base font size for body */
+body {
+    font-size: 1rem; /* Default body font size */
+  }
+  
+  /* Remove underlines from anchor tags */
+  a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+  }
+  
+  a:hover {
+    text-decoration: none; /* Keep it underline-free on hover */
+    color:  #f3c93e; /* Optional hover color change */
+  }
+  
+  /* Navbar brand styling */
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Adjust navbar link styles */
+  .nav-link {
+    font-size: 1rem;
+    padding: 10px 15px;
+    color: white;
+  }
+  
+  .nav-link:hover {
+    color: #f3c93e; /* Change link color on hover */
+  }
+  
+  /* Contact and user options */
+  .contact_nav a,
+  .user_option_box a {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 0.95rem;
+    color:white;
+  }
+  
+  .contact_nav i,
+  .user_option_box i {
+    margin-right: 5px;
+  }
+  
+  .user_option_box a:hover,
+  .contact_nav a:hover {
+    color:  #f3c93e;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    /* Navbar brand and nav-link font size adjustment for smaller screens */
+    .navbar-brand {
+      font-size: 1.2rem;
+    }
+  
+    .nav-link {
+      font-size: 0.9rem;
+    }
+  
+    .contact_nav a,
+    .user_option_box a {
+      font-size: 0.85rem;
+    }
+  
+    .top_nav_container {
+      flex-direction: column-reverse;
+    }
+  
+    .user_option_box,
+    .contact_nav {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .navbar-brand {
+      font-size: 1rem;
+    }
+  
+    .nav-link {
+      font-size: 0.85rem;
+    }
+  
+    .contact_nav a,
+    .user_option_box a {
+      font-size: 0.8rem;
+    }
+  }
+  

@@ -1,0 +1,292 @@
+/* Ensure modal takes up most of the screen */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Center the modal content */
+.modal-content {
+  position: relative;
+  width: 45%; /* Smaller modal width */
+  max-width: 700px;
+  height: auto; /* Adjust height */
+  padding: 15px; /* Reduced padding for smaller height */
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+/* Style the image container for swiping images */
+.modal-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Image in modal */
+.modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Style the swipe buttons (prev/next) */
+.swipe-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.swipe-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Close button for the modal */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50%;
+}
+
+.close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Adjust the position of the content box to avoid the sidebar */
+.container-fluid {
+  margin-left: 60px; /* Reduced margin for better centering with the sidebar */
+  padding-right: 5px;
+}
+
+/* Optional: If you want to ensure the container doesn't stretch full width */
+.container-fluid.mt-0.px-4 {
+  max-width: calc(100% - 100px); /* Adjust based on the sidebar width */
+}
+
+/* Header styling */
+.header-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+h2 {
+  font-size: 24px; /* Smaller header size */
+  font-weight: bold;
+  color: #434f78;
+  text-align: center;
+  margin-top: 25px;
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  margin-top: 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px; /* Smaller padding */
+  font-size: 14px;
+  background-color: white;
+}
+
+.table thead th {
+  background-color: #434f78;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  border-bottom: 2px solid #ddd;
+}
+
+/* Product image styling */
+.product-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.1);
+}
+
+/* Badge styling */
+.badge {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+/* Button styling */
+.btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  min-width: 100px;
+}
+
+/* Edit button color change */
+.btn-info {
+  background-color: #17a2b8; /* Change to a distinct color */
+  border-color: #17a2b8;
+}
+
+.btn-info:hover {
+  background-color: #138496; /* Darken the hover state */
+  border-color: #117a8b;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .table th, .table td {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .product-image {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Scrollable table */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: start;
+}
+
+.ml-2 {
+  margin-left: 8px;
+}
+
+/* Styling for the Edit Product Modal */
+.edit-product-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 15px; /* Reduced padding for smaller modal */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Modal header */
+.edit-product-modal h3 {
+  margin-bottom: 15px; /* Reduced margin for compact header */
+  font-size: 20px; /* Smaller font size */
+  font-weight: bold;
+  color: #333;
+}
+
+/* Form input fields styling */
+.edit-product-modal input,
+.edit-product-modal textarea {
+  width: 100%;
+  padding: 8px; /* Reduced padding */
+  margin-bottom: 10px; /* Reduced margin */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Label styling */
+.edit-product-modal label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+  width: 100%;
+}
+
+/* Button styling */
+.edit-product-modal button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Button hover effect */
+.edit-product-modal button:hover {
+  background-color: #0056b3;
+}
+
+/* Close button styling */
+.edit-product-modal .close-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Close button hover effect */
+.edit-product-modal .close-btn:hover {
+  background-color: #c82333;
+}
+
+/* Ensuring the text area expands nicely */
+.edit-product-modal textarea {
+  height: 100px;
+  resize: vertical;
+}
