@@ -28,11 +28,22 @@ app.use(rateLimit({
 app.use(express.json());
 
 // CORS configuration to allow both user and admin panel frontends
+// app.use(cors({
+//   origin: ['http://localhost:5173', 'http://localhost:5174'], // Allow both frontends
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Add PATCH method
+//   allowedHeaders: ['Content-Type', 'Authorization', 'token'],
+// }));
+
+const allowedOrigins = process.env.NODE_ENV === 'production'
+  ? ['https://swipesharee.vercel.app']
+  : ['http://localhost:5173', 'http://localhost:5174'];
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'], // Allow both frontends
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], // Add PATCH method
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'token'],
 }));
+
 
 // API endpoints
 app.use('/api/user', userRouter);
