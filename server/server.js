@@ -34,15 +34,13 @@ app.use(express.json());
 //   allowedHeaders: ['Content-Type', 'Authorization', 'token'],
 // }));
 
-const allowedOrigins = process.env.NODE_ENV === 'production'
-  ? ['https://swipesharee.vercel.app']
-  : ['http://localhost:5173', 'http://localhost:5174'];
-
+// CORS Configuration
 app.use(cors({
-  origin: allowedOrigins,
+  origin: ['http://localhost:5173', 'http://localhost:5174', 'https://swipesharee.vercel.app'], // Add your deployed frontend URL here
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'token'],
 }));
+
 
 
 // API endpoints
@@ -57,8 +55,11 @@ app.get("/", (req, res) => {
 
 // General error handler
 app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ success: false, message: 'Something went wrong!' });
+    console.error('Error:', err.stack);
+    res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Internal Server Error',
+    });
 });
 
 // Start server
