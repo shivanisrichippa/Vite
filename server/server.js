@@ -35,12 +35,19 @@ app.use(express.json());
 // }));
 
 // CORS Configuration
+
+
+// CORS Configuration
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174', 'https://swipesharee.vercel.app'], // Add your deployed frontend URL here
+  origin: [
+    'http://localhost:5173',       // Local dev frontend
+    'http://localhost:5174',       // Another local dev frontend
+    'https://swipesharee.vercel.app' // Deployed frontend
+  ], 
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'token'],
+  credentials: true, // Allow cookies and credentials if needed
 }));
-
 
 
 // API endpoints
