@@ -43,12 +43,13 @@ const SignUp = () => {
         if (image) form.append('image', image);
 
         try {
-            const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/user/sign-up`, form, {
-  headers: { 
-    'Content-Type': 'multipart/form-data',
-    'Authorization': `Bearer ${localStorage.getItem('authToken')}` // if required
-  },
+           const { data } = await axios.post('https://backend-swipeshare.vercel.app/api/user/sign-up', formData, {
+    headers: {
+        'Content-Type': 'multipart/form-data', // If you're sending files
+        'Authorization': `Bearer ${localStorage.getItem('authToken')}` // If your backend needs an Authorization header
+    }
 });
+
 
 
             if (data.success) {
