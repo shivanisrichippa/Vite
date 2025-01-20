@@ -44,8 +44,12 @@ const SignUp = () => {
 
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/user/sign-up`, form, {
-                headers: { 'Content-Type': 'multipart/form-data' },
-            });
+  headers: { 
+    'Content-Type': 'multipart/form-data',
+    'Authorization': `Bearer ${localStorage.getItem('authToken')}` // if required
+  },
+});
+
 
             if (data.success) {
                 localStorage.setItem('authToken', data.token);
