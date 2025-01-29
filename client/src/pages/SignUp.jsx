@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -17,10 +13,18 @@ const SignUp = () => {
         id: '',
         year: '',
     });
+
     const [image, setImage] = useState(null);
     const [imagePreview, setImagePreview] = useState('');
-    const [token, setToken] = useState(localStorage.getItem('authToken')); // Initialize with localStorage
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('authToken');
+        if (token) {
+            toast.success('Already signed up!');
+            navigate('/');
+        }
+    }, [navigate]);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -38,25 +42,22 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         const form = new FormData();
         Object.keys(formData).forEach((key) => form.append(key, formData[key]));
         if (image) form.append('image', image);
 
         try {
-           const { data } = await axios.post('https://backend-swipeshare.vercel.app/api/user/sign-up', formData, {
-    headers: {
-        'Content-Type': 'multipart/form-data', // If you're sending files
-        'Authorization': `Bearer ${localStorage.getItem('authToken')}` // If your backend needs an Authorization header
-    }
-});
-
-
+            const { data } = await axios.post('https://backend-swipeshare.vercel.app/api/user/sign-up', form, {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`, // Send token if required
+                },
+            });
 
             if (data.success) {
                 localStorage.setItem('authToken', data.token);
-                setToken(data.token); // Update state
                 toast.success('Signup successful!');
-                navigate('/'); // Redirect to home page
+                navigate('/');
             } else {
                 toast.error(data.message || 'Signup failed. Please try again.');
             }
@@ -64,14 +65,6 @@ const SignUp = () => {
             toast.error('Signup failed. Please try again.');
         }
     };
-
-    useEffect(() => {
-        if (token) {
-            navigate('/');
-            toast.success('Already Signup successful!');
-             // Redirect to home if logged in
-        }
-    }, [token, navigate]);
 
     return (
         <div className="container mt-5">
